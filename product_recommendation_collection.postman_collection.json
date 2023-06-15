@@ -738,7 +738,73 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Product Recommendation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/recommendation/54/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"recommendation",
+										"54",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 15 Jun 2023 16:28:06 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.9.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "184"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Data fetched successfully\",\n    \"data\": [\n        {\n            \"id\": 47,\n            \"title\": \"Eau De Perfume Spray\",\n            \"price\": 30,\n            \"brand\": \"Lord - Al-Rehab\",\n            \"rating\": 4.7,\n            \"category\": \"fragrances\"\n        }\n    ]\n}"
+						}
+					]
 				}
 			]
 		}
