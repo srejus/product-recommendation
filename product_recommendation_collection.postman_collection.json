@@ -1,0 +1,746 @@
+{
+	"info": {
+		"_postman_id": "b5365ca5-cb21-48c3-812f-35c4f6cd1b4a",
+		"name": "product_recommendation_collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18966049"
+	},
+	"item": [
+		{
+			"name": "Accounts",
+			"item": [
+				{
+					"name": "Login API",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var res = pm.response.json();\r",
+									"pm.environment.set('BEARER_TOKEN', res.access);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\":\"admin123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/api/token/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"api",
+								"token",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Login API",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\":\"admin\",\r\n    \"password\":\"admin123\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/api/token/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"api",
+										"token",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 14 Jun 2023 14:30:55 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.9.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "483"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"refresh\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY4NjgzOTQ1NSwiaWF0IjoxNjg2NzUzMDU1LCJqdGkiOiI4NWFjMzJkOWYwOTQ0NGY2YTI2YWE2NTZjZDI3NDA3NiIsInVzZXJfaWQiOjF9.pcXaEv8-xs9ngc5QJTfCdpaVG8HyZRFrHa4ftXF_Xcs\",\n    \"access\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg2NzUzOTU1LCJpYXQiOjE2ODY3NTMwNTUsImp0aSI6ImY0YzE5MGM2YWZjYzRiZDk4ZWZlMjBiODQ2ODAyZjY4IiwidXNlcl9pZCI6MX0.PtPvlKpbO8xFCz0Xria_5Xs016OIiaTYwTlC3XmFMKY\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Upload Bulk Products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BEARER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/product/populate-products/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"product",
+								"populate-products",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/product/populate-products/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"product",
+										"populate-products",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 14 Jun 2023 14:50:57 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.9.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "99"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Products imported successfully from https://dummyjson.com/products\"\n}"
+						},
+						{
+							"name": "Failed Response",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/product/populate-products/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"product",
+										"populate-products",
+										""
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 14 Jun 2023 14:51:30 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.9.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "78"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"failed\",\n    \"message\": \"You already imported all products from the api\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all Products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BEARER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/product/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"product",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get all Products",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/product/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"product",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 14 Jun 2023 14:57:08 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.9.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1152"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"count\": 30,\n    \"next\": \"http://127.0.0.1:8000/product/?limit=10&offset=10\",\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 33,\n            \"title\": \"iPhone 9\",\n            \"price\": 549,\n            \"brand\": \"Apple\",\n            \"rating\": 4.69,\n            \"category\": \"smartphones\"\n        },\n        {\n            \"id\": 34,\n            \"title\": \"iPhone X\",\n            \"price\": 899,\n            \"brand\": \"Apple\",\n            \"rating\": 4.44,\n            \"category\": \"smartphones\"\n        },\n        {\n            \"id\": 35,\n            \"title\": \"Samsung Universe 9\",\n            \"price\": 1249,\n            \"brand\": \"Samsung\",\n            \"rating\": 4.09,\n            \"category\": \"smartphones\"\n        },\n        {\n            \"id\": 36,\n            \"title\": \"OPPOF19\",\n            \"price\": 280,\n            \"brand\": \"OPPO\",\n            \"rating\": 4.3,\n            \"category\": \"smartphones\"\n        },\n        {\n            \"id\": 37,\n            \"title\": \"Huawei P30\",\n            \"price\": 499,\n            \"brand\": \"Huawei\",\n            \"rating\": 4.09,\n            \"category\": \"smartphones\"\n        },\n        {\n            \"id\": 38,\n            \"title\": \"MacBook Pro\",\n            \"price\": 1749,\n            \"brand\": \"Apple\",\n            \"rating\": 4.57,\n            \"category\": \"laptops\"\n        },\n        {\n            \"id\": 39,\n            \"title\": \"Samsung Galaxy Book\",\n            \"price\": 1499,\n            \"brand\": \"Samsung\",\n            \"rating\": 4.25,\n            \"category\": \"laptops\"\n        },\n        {\n            \"id\": 40,\n            \"title\": \"Microsoft Surface Laptop 4\",\n            \"price\": 1499,\n            \"brand\": \"Microsoft Surface\",\n            \"rating\": 4.43,\n            \"category\": \"laptops\"\n        },\n        {\n            \"id\": 41,\n            \"title\": \"Infinix INBOOK\",\n            \"price\": 1099,\n            \"brand\": \"Infinix\",\n            \"rating\": 4.54,\n            \"category\": \"laptops\"\n        },\n        {\n            \"id\": 42,\n            \"title\": \"HP Pavilion 15-DK1056WM\",\n            \"price\": 1099,\n            \"brand\": \"HP Pavilion\",\n            \"rating\": 4.43,\n            \"category\": \"laptops\"\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Get product by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BEARER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/product/50/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"product",
+								"50",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get product by ID",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/product/50/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"product",
+										"50",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 14 Jun 2023 15:52:25 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.9.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "179"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Data fetched successfully\",\n    \"data\": {\n        \"id\": 50,\n        \"title\": \"Oil Free Moisturizer 100ml\",\n        \"price\": 40,\n        \"brand\": \"Dermive\",\n        \"rating\": 4.56,\n        \"category\": \"skincare\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Create Order",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BEARER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"order_items\": [\r\n        {\r\n            \"product\": 50,\r\n            \"quantity\":2\r\n        }\r\n    ],\r\n    \"rating\":4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/order/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"order",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Order",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"order_items\": [\r\n        {\r\n            \"product\": 50,\r\n            \"quantity\":2\r\n        }\r\n    ],\r\n    \"rating\":1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/order/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"order",
+										""
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 15 Jun 2023 13:22:30 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.9.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "451"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Order created successfully\",\n    \"data\": {\n        \"id\": 409,\n        \"order_items\": [\n            {\n                \"id\": 385,\n                \"price\": 80,\n                \"quantity\": 2,\n                \"order\": {\n                    \"id\": 409,\n                    \"ordered_at\": \"2023-06-15T13:22:30.952745Z\",\n                    \"total_amount\": 80,\n                    \"rating\": 1,\n                    \"customer\": 1\n                },\n                \"product\": {\n                    \"id\": 50,\n                    \"title\": \"Oil Free Moisturizer 100ml\",\n                    \"price\": 40,\n                    \"brand\": \"Dermive\",\n                    \"rating\": 4.56,\n                    \"category\": \"skincare\"\n                }\n            }\n        ],\n        \"ordered_at\": \"2023-06-15T13:22:30.952745Z\",\n        \"total_amount\": 80,\n        \"rating\": 1,\n        \"customer\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Random Orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BEARER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"no_of_orders\":100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/order/populate-orders/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"order",
+								"populate-orders",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Random Orders",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"no_of_orders\":1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/order/populate-orders/",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"order",
+										"populate-orders",
+										""
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Thu, 15 Jun 2023 06:27:11 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.9.7"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "POST, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "60"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Orders created successfully\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Recommendation",
+			"item": [
+				{
+					"name": "Product Recommendation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{BEARER_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/recommendation/54/",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"recommendation",
+								"54",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
