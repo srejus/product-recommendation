@@ -1,6 +1,5 @@
 import random
 
-from django.shortcuts import render
 from django.contrib.auth.models import User
 
 from rest_framework.views import APIView
@@ -33,7 +32,7 @@ class PopulateOrderView(APIView):
     parser_classes = [JSONParser]
     
     def post(self,request):
-        no_of_orders = request.data.get('no_of_orders',10)
+        no_of_orders = request.data.get('no_of_orders',100)
         
         try:
             if not no_of_orders.isnumeric():
@@ -59,7 +58,8 @@ class PopulateOrderView(APIView):
                         "price":product.price*quantity
                     }
                 ],
-                "customer":random.choice(users_list)
+                "customer":random.choice(users_list),
+                "rating":round(random.uniform(1,5),2)
             }
             
             

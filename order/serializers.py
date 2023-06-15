@@ -34,9 +34,16 @@ class OrderSerializer(serializers.ModelSerializer):
     def validate(self,data):
         errors = []
         order_items = self.initial_data.get('order_items')
+        rating = self.initial_data.get('rating')
         
         if not order_items:
             errors.append({"order_items":"This field is requried"})
+        
+        if not rating:
+            errors.append({"rating":"This field is requried"})
+        
+        if rating and rating > 5.0 or rating < 0.0:
+            errors.append({"rating":"This field must be between 1.00 and 5.00"})
             
         if errors:
             raise serializers.ValidationError({"errors":errors})

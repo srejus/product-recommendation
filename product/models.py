@@ -14,4 +14,7 @@ class Product(models.Model):
             self.category = self.category.replace("-", "_").replace(" ", "_")
             
         super().save(*args, **kwargs)
+    
+    def __str__(self):
+        return str(self.title)
 
